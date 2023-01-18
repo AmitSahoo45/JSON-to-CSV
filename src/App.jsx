@@ -1,6 +1,10 @@
 import { useState } from 'react'
-import { Textarea, Button, Spacer, Container, Modal, Text } from '@nextui-org/react';
+import { Textarea, Button, Spacer, Container, Modal, Text, Image } from '@nextui-org/react';
 import Papa from 'papaparse'
+
+import Twitter from './assets/twitter.png'
+import Github from './assets/github.png'
+import Linkedin from './assets/linkedin.png'
 
 import './App.css'
 
@@ -27,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <Container fluid gap={2} css={{ marginBottom: '4rem', textAlign: 'center' }} className='Work-Sans'>
+      <Container fluid gap={2} css={{ marginBottom: '2rem', textAlign: 'center' }} className='Work-Sans'>
         <Text
           h1
           css={{
@@ -55,7 +59,7 @@ function App() {
           status='secondary'
           labelPlaceholder="Put your JSON here"
           minRows={10}
-          maxRows={14}
+          maxRows={10}
           value={json}
           onChange={(e) => setJson(e.target.value)}
           css={{
@@ -72,6 +76,38 @@ function App() {
         >
           Download CSV
         </Button>
+      </Container>
+      <Container fluid css={{ textAlign: 'center', marginTop: '10px' }} className='Work-Sans'>
+        <Text h4>Follow me on</Text>
+        <Container css={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '50%',
+          marginTop: '0.4rem'
+        }}>
+          <Image
+            src={Twitter}
+            width={30}
+            height={30}
+            onClick={() => window.open('https://twitter.com/DepressedCoder', '_blank')}
+          />
+          <Spacer x={1} />
+          <Image
+            src={Github}
+            width={30}
+            height={30}
+            onClick={() => window.open('http://github.com/AmitSahoo45', '_blank')}
+          />
+          <Spacer x={1} />
+          <Image
+            src={Linkedin}
+            width={30}
+            height={30}
+            onClick={() => window.open('https://www.linkedin.com/in/amit-kumar-sahoo-web/', '_blank')}
+          />
+        </Container>
       </Container>
       <Modal
         closeButton
